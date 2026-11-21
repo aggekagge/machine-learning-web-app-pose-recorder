@@ -160,7 +160,7 @@ This was a collaborative group project. My work included:
 - Kim Wong
 - Elliot Ehn
 
-Developed for the **4DT907 "Project in data intensive systems"** Master's level course at Linnaeus University, spring 2026.
+Developed for the **4DT907 "Project in data intensive systems"** Master's level course at Linnaeus University Växjö, spring 2026.
 
 <table>
   <tr>
