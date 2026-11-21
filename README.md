@@ -2,8 +2,6 @@
 
 A full-stack university project for **movement analysis, machine-learning predictions, and 3D skeleton visualization**. The application combines a browser interface, a Node.js web server, a FastAPI inference service, and MLflow-managed models.
 
-Developed as a group project in **4DT907** at **Linnaeus University, Sweden**.
-
 ## Overview
 
 The system lets users explore movement-related predictions and record or upload movement data. Its main functions include:
