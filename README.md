@@ -166,11 +166,11 @@ Developed for the **4DT907 "Project in data intensive systems"** Master's level 
 
 
   <tr>
-    <td width="50%">
-      <img src="assets/1squat.png" alt="Pose Recorder" width="40%">
+    <td width="40%">
+      <img src="assets/1squat.png" alt="Pose Recorder" width="36%">
     </td>
     <td width="50%">
-      <img src="assets/2squat.png" alt="3D Skeleton Viewer" width="50%">
+      <img src="assets/2squat.png" alt="3D Skeleton Viewer" width="45%">
     </td>
   </tr>
 </table>
