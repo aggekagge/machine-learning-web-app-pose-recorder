@@ -1,0 +1,171 @@
+﻿body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+}
+button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid lightgray;
+  background: white;
+}
+button:hover {
+  background: whitesmoke;
+  cursor: pointer;
+}
+
+.input-row {
+  padding: 0.5rem 1rem;
+}
+.input-row label {
+  display: inline-block;
+  min-width: 50px;
+  margin-right: 0.5rem;
+}
+.input-row input {
+  padding: 0.5rem;
+  width: min(420px, 90vw);
+}
+
+.input-with-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-with-upload input[type="text"],
+.input-with-upload textarea {
+  flex: 1;
+}
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 2px solid lightgray;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.upload-btn:hover {
+  background: whitesmoke;
+}
+
+.features {
+  padding: 0.5rem 1rem 1rem;
+}
+
+.features h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.features ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.nav-links a {
+  color: rgb(42, 42, 119);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.video-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.video-panel {
+  padding: 1rem;
+  border: 1px solid lightgray;
+  background: #fff;
+}
+
+.video-panel h2,
+.video-panel h3 {
+  margin: 0 0 0.6rem;
+}
+
+#videoFileName {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.video-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.video-btn {
+  min-width: 140px;
+  min-height: 40px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.list-btn {
+  margin-top: 0.25rem;
+}
+
+.list-toggle {
+  margin-top: 0.5rem;
+}
+
+.process-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.process-row input {
+  padding: 0.5rem;
+  width: min(420px, 95%);
+}
+
+#videoOutput,
+#processOutput {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid lightgray;
+  background: #fafafa;
+  min-height: 90px;
+  width: min(620px, 96%);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.video-list-panel {
+  margin-top: 0.75rem;
+}
+
+.video-names-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.video-list-empty {
+  font-style: italic;
+  color: #666;
+}

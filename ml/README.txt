@@ -1,0 +1,1 @@
+This folder hosts all files connected to the machine learning and API part of the project.

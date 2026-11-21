@@ -1,0 +1,10 @@
+
+VM login
+ssh -i <PRIVATE_KEY_FILE> ubuntu@<INSTANCE_IP> (172.27.62.170 for current cs cloud instance)
+
+Loading files to VM
+scp -i <PRIVATE_KEY_FILE> <FILE> ubuntu@<INSTANCE_IP>:/<PATH_IN_VM>
+scp -i <PRIVATE_KEY_FILE> -r <FOLDER> ubuntu@<INSTANCE_IP>:/<PATH_IN_VM>
+
+Loading file from VM to local machine
+scp -i <PRIVATE_KEY_FILE> ubuntu@<INSTANCE_IP>:<REMOTE_FILE> <LOCAL_DESTINATION>

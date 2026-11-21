@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pose Recorder</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./pose-recorder.css" />
+</head>
+<body>
+  <h1>Pose Recorder</h1>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../predict.html">Prediction Score</a>
+    <a href="../weakest.html">Weakest Link</a>
+    <a href="../skeleton_viewer/skeleton-3d.html">3D Skeleton Viewer</a>
+  </div>
+
+  <div class="pose-layout">
+    <section class="pose-panel">
+      <h2>Camera</h2>
+      <div class="camera-top-row">
+        <div class="stage" id="stage">
+          <video id="camera" playsinline muted class="mirrored"></video>
+          <canvas id="overlay" class="mirrored"></canvas>
+        </div>
+
+        <aside class="recording-info-inline">
+          <h3>Recording Info</h3>
+          <p id="recordSummary" class="record-summary">Not recording yet.</p>
+          <p class="server-destination-hint">
+            Destination:
+            <code>ml/api/data/extracted_keypoints</code>.
+          </p>
+          <div class="keypoint-coverage-box">
+            <h4>Live Keypoint Check</h4>
+            <p id="keypointCoverageStatus" class="keypoint-coverage-status status-neutral">
+              Start camera to evaluate keypoint visibility.
+            </p>
+          </div>
+          <div class="camera-quality-box">
+            <h4>Camera quality</h4>
+            <p id="cameraQualityStatus" class="camera-quality-status status-neutral">
+              Start camera to evaluate camera quality.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="pose-actions">
+        <button id="startCameraBtn" type="button">Start Camera</button>
+        <button id="recordToggleBtn" type="button" disabled>Record</button>
+        <button id="saveCsvBtn" type="button" disabled>Save CSV</button>
+      </div>
+
+      <pre id="poseStatus">Ready.</pre>
+
+      <div class="video-upload-section">
+        <h3>Video to MoveNet CSV</h3>
+        <p class="video-upload-hint">Upload .mp4 or .mov file</p>
+        <div class="video-upload-actions">
+          <input id="uploadVideoFile" type="file" accept=".mp4,.mov,video/mp4,video/quicktime" hidden />
+          <label for="uploadVideoFile" class="upload-btn">Choose Video</label>
+          <button id="processVideoBtn" type="button" disabled>Process Video to CSV</button>
+        </div>
+        <p id="uploadVideoFileName" class="video-file-name">No video selected.</p>
+        <pre id="videoProcessStatus" class="video-process-status">Waiting for video file.</pre>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core@4.10.0/dist/tf-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter@4.10.0/dist/tf-converter.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.10.0/dist/tf-backend-webgl.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@2.1.0/dist/pose-detection.min.js"></script>
+  <script type="module" src="./pose-recorder.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "lstm_h16_drop020",
+  "arch": "lstm",
+  "hidden_size": 16,
+  "num_layers": 1,
+  "dense_dims": "()",
+  "dropout": 0.2,
+  "lr": 0.001,
+  "batch": 16,
+  "first_c": 10,
+  "n_features": 39,
+  "rejection_threshold": 0.5163113546240864
+}

@@ -1,0 +1,35 @@
+
+services:
+  ml-api:
+    build:
+      context: ./ml/api
+      dockerfile: Dockerfile
+    container_name: ml-api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - app-network
+    env_file:
+      - ./ml/api/ml.env
+    volumes:
+      - ./backend_folder/data:/app/data
+
+  sw-backend:
+    build:
+      context: ./sw
+      dockerfile: Dockerfile
+    container_name: sw-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ml-api
+    environment:
+      - ML_API_URL=http://ml-api:8000
+    restart: unless-stopped
+    networks:
+      - app-network
+      
+networks:
+  app-network:
+    driver: bridge

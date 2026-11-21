@@ -1,0 +1,33 @@
+
+services:
+  ml-api:
+    image: gitlab.lnu.se:5050/pg222jw/machine_learning_project_4dt907:latest-ml-api
+    platform: linux/amd64
+    container_name: ml-api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - app-network
+    env_file:
+      - ml.env
+    volumes:
+      - ./backend_folder/data:/app/data
+
+  sw-backend:
+    image: gitlab.lnu.se:5050/pg222jw/machine_learning_project_4dt907:latest-sw-backend
+    platform: linux/amd64
+    container_name: sw-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ml-api
+    environment:
+      - ML_API_URL=http://ml-api:8000
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,4 @@
+
+
+tree - Shows the whole root directory structure
+tree -I "dir1|dir2|dir3" - Excludes dir1, dir2, and dir3.

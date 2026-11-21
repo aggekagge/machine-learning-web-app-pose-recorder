@@ -1,0 +1,5 @@
+model_family,model_variant,sequence_length,train_shape,test_shape,optimizer,loss,epochs,batch_size,test_mae
+Dense,Dense_256_128,20,"(14713, 20, 26)","(4256, 20, 26)",adam,mse,67,32,0.027977267280220985
+Conv1D,Conv1D_64_128_128_k5_dropout,20,"(14713, 20, 26)","(4256, 20, 26)",adam,mse,72,32,0.02981385961174965
+Dense,Dense_512_256_128_dropout,20,"(14713, 20, 26)","(4256, 20, 26)",adam,mse,27,32,0.03030497208237648
+Conv1D,Conv1D_64_128_k3,20,"(14713, 20, 26)","(4256, 20, 26)",adam,mse,92,32,0.030761923640966415

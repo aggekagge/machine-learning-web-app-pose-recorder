@@ -1,0 +1,6 @@
+Skala bak pipelinenen
+Pipelinen kör en compare och deploy endast.
+
+Ha samma och rätt req mellan mig och Elliot. Samma versioner av numpy, torch etc
+Måste logga samma antal metriker och rätt namn "R2" och "r2" är olika. 
+När man är klar med sin notebook ska man ha en sammanfattning av alla parametrar och metriker nånstans i början eller slutet

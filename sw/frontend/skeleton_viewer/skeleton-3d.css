@@ -1,0 +1,142 @@
+.skeleton3d-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 2fr) minmax(420px, 3fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.skeleton3d-panel {
+  border: 1px solid lightgray;
+  background: #fff;
+  padding: 1rem;
+}
+
+.skeleton3d-panel h2 {
+  margin: 0 0 0.6rem;
+}
+
+.skeleton3d-hint {
+  margin: 0 0 0.6rem;
+}
+
+.server-csv-section {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 0.8rem;
+}
+
+.server-csv-section h3 {
+  margin: 0 0 0.5rem;
+}
+
+.server-csv-hint {
+  margin: 0 0 0.5rem;
+}
+
+.server-csv-picker {
+  margin-top: 0.6rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.server-csv-picker label {
+  font-weight: 600;
+}
+
+.server-csv-picker select {
+  max-width: 100%;
+  min-height: 2rem;
+}
+
+.server-csv-primary-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.server-csv-primary-actions button {
+  margin-left: 0;
+  padding: 0.55rem 1rem;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.squat-filter-inline {
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem;
+  align-items: start;
+  line-height: 1.35;
+}
+
+.squat-filter-inline input[type="checkbox"] {
+  margin-top: 0.2rem;
+}
+
+.skeleton3d-upload {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+#skeletonCsvFileName {
+  font-style: italic;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.control-buttons {
+  grid-template-columns: 1fr 1fr;
+}
+
+.control-buttons button {
+  margin-left: 0;
+}
+
+#exerciseStatus {
+  margin-top: 1rem;
+  min-height: 44px;
+  white-space: pre-wrap;
+  border: 1px solid lightgray;
+  background: #f4f8ff;
+  padding: 0.75rem;
+}
+
+#skeletonStatus {
+  margin-top: 0.7rem;
+  min-height: 160px;
+  white-space: pre-wrap;
+  border: 1px solid lightgray;
+  background: #fafafa;
+  padding: 0.75rem;
+}
+
+#skeletonCanvas {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border: 1px solid lightgray;
+  background: #101820;
+  display: block;
+  cursor: grab;
+  touch-action: none;
+}
+
+#skeletonCanvas.is-dragging {
+  cursor: grabbing;
+}
+
+@media (max-width: 1000px) {
+  .skeleton3d-layout {
+    grid-template-columns: 1fr;
+  }
+}

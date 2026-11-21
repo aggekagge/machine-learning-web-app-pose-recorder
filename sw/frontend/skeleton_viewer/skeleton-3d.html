@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Skeleton Viewer</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./skeleton-3d.css" />
+</head>
+<body>
+  <h1>3D Skeleton Viewer</h1>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../predict.html">Prediction Score</a>
+    <a href="../weakest.html">Weakest Link</a>
+    <a href="../pose_recorder/pose-recorder.html">Pose Recorder</a>
+  </div>
+
+  <div class="skeleton3d-layout">
+    <section class="skeleton3d-panel">
+
+      <div class="server-csv-section">
+        <h3>Server CSV Files</h3>
+        <p class="server-csv-hint">
+        </p>
+        <div class="server-csv-picker">
+          <label for="serverCsvSelect">Available CSV</label>
+          <select id="serverCsvSelect" disabled>
+            <option value="">No files loaded</option>
+          </select>
+        </div>
+        <div class="server-csv-primary-actions">
+          <button id="refreshServerCsvBtn" type="button">Refresh CSV List</button>
+          <button id="processServerCsvBtn" type="button" disabled>Visualize and evaluate</button>
+        </div>
+        <label class="squat-filter-inline" for="skeletonCutFramesToggle">
+          <input id="skeletonCutFramesToggle" type="checkbox" checked />
+          Remove non-squat frames before 3D conversion
+        </label>
+      </div>
+
+      <div class="skeleton3d-upload">
+        <input id="skeletonCsvFile" type="file" accept=".csv,text/csv" hidden />
+        <label for="skeletonCsvFile" class="upload-btn">Choose 3D CSV</label>
+        <span id="skeletonCsvFileName">No CSV selected</span>
+      </div>
+
+      <div class="control-row">
+        <label for="frameSlider">Frame</label>
+        <input id="frameSlider" type="range" min="0" max="0" step="1" value="0" disabled />
+        <span id="frameInfo">0 / 0</span>
+      </div>
+
+      <div class="control-row control-buttons">
+        <button id="playPauseBtn" type="button" disabled>Play</button>
+        <button id="stopBtn" type="button" disabled>Stop</button>
+      </div>
+
+      <div class="control-row">
+        <label for="fpsSlider">FPS</label>
+        <input id="fpsSlider" type="range" min="1" max="60" step="1" value="60" />
+        <span id="fpsValue">60</span>
+      </div>
+
+      <pre id="exerciseStatus">Exercise: Unknown | Score: N/A</pre>
+      <pre id="skeletonStatus">Waiting for 3D CSV file.</pre>
+    </section>
+
+    <section class="skeleton3d-panel">
+      <h2>3D Skeleton Animation</h2>
+      <canvas id="skeletonCanvas" width="960" height="600"></canvas>
+    </section>
+  </div>
+
+  <script type="module" src="./skeleton-3d.js"></script>
+</body>
+</html>

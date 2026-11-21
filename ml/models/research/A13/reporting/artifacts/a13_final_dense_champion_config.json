@@ -1,0 +1,144 @@
+{
+  "name": "dense_coords_dist_24_12_drop010",
+  "seq_len": 10,
+  "feature_set": "coords_distances",
+  "hidden_dims": [
+    24,
+    12
+  ],
+  "dropout": 0.1,
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "epochs": 120,
+  "patience": 15,
+  "threshold": 0.5,
+  "input_dim": 380,
+  "n_parameters": 9457,
+  "coord_cols": [
+    "head_x",
+    "head_y",
+    "left_shoulder_x",
+    "left_shoulder_y",
+    "left_elbow_x",
+    "left_elbow_y",
+    "right_shoulder_x",
+    "right_shoulder_y",
+    "right_elbow_x",
+    "right_elbow_y",
+    "left_hand_x",
+    "left_hand_y",
+    "right_hand_x",
+    "right_hand_y",
+    "left_hip_x",
+    "left_hip_y",
+    "right_hip_x",
+    "right_hip_y",
+    "left_knee_x",
+    "left_knee_y",
+    "right_knee_x",
+    "right_knee_y",
+    "left_foot_x",
+    "left_foot_y",
+    "right_foot_x",
+    "right_foot_y"
+  ],
+  "joints_13": [
+    "head",
+    "left_shoulder",
+    "left_elbow",
+    "right_shoulder",
+    "right_elbow",
+    "left_hand",
+    "right_hand",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "left_foot",
+    "right_foot"
+  ],
+  "selected_distance_pairs": [
+    [
+      "left_shoulder",
+      "right_shoulder"
+    ],
+    [
+      "left_hip",
+      "right_hip"
+    ],
+    [
+      "left_shoulder",
+      "left_elbow"
+    ],
+    [
+      "left_elbow",
+      "left_hand"
+    ],
+    [
+      "right_shoulder",
+      "right_elbow"
+    ],
+    [
+      "right_elbow",
+      "right_hand"
+    ],
+    [
+      "left_hip",
+      "left_knee"
+    ],
+    [
+      "left_knee",
+      "left_foot"
+    ],
+    [
+      "right_hip",
+      "right_knee"
+    ],
+    [
+      "right_knee",
+      "right_foot"
+    ],
+    [
+      "left_shoulder",
+      "left_hip"
+    ],
+    [
+      "right_shoulder",
+      "right_hip"
+    ]
+  ],
+  "selected_angle_triples": [
+    [
+      "left_shoulder",
+      "left_elbow",
+      "left_hand"
+    ],
+    [
+      "right_shoulder",
+      "right_elbow",
+      "right_hand"
+    ],
+    [
+      "left_hip",
+      "left_knee",
+      "left_foot"
+    ],
+    [
+      "right_hip",
+      "right_knee",
+      "right_foot"
+    ],
+    [
+      "left_shoulder",
+      "left_hip",
+      "left_knee"
+    ],
+    [
+      "right_shoulder",
+      "right_hip",
+      "right_knee"
+    ]
+  ],
+  "normalization": "MinMaxScaler fit on training data only",
+  "augmentation": "max cascade augmentation for final champion training"
+}

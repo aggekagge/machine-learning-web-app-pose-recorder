@@ -1,0 +1,5 @@
+Every push or merge should:
+Run tests for each component
+Build Docker images (ML backend, FastAPI, web server, frontend)
+Push images to GitLab Container Registry
+Deploy to your university’s CS cloud (via SSH, Kubernetes, or similar)

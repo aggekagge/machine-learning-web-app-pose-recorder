@@ -1,0 +1,44 @@
+{
+  "name": "dense_scores_16_8",
+  "model_family": "dense",
+  "feature_set": "scores_only",
+  "seq_len": 10,
+  "feature_cols": [
+    "pose_score",
+    "head_score",
+    "left_shoulder_score",
+    "left_elbow_score",
+    "right_shoulder_score",
+    "right_elbow_score",
+    "left_hand_score",
+    "right_hand_score",
+    "left_hip_score",
+    "right_hip_score",
+    "left_knee_score",
+    "right_knee_score",
+    "left_foot_score",
+    "right_foot_score"
+  ],
+  "target_names": [
+    "pose_confidence",
+    "keypoint_confidence",
+    "combined_confidence"
+  ],
+  "hidden_dims": [
+    16,
+    8
+  ],
+  "dropout": 0.05,
+  "learning_rate": 0.001,
+  "batch_size": 16,
+  "epochs": 120,
+  "patience": 15,
+  "accept_threshold": 0.53,
+  "warn_threshold": 0.5,
+  "pose_weight": 0.5,
+  "keypoint_weight": 0.5,
+  "n_parameters": 2419,
+  "best_epoch": 119,
+  "best_val_loss": 0.0033575964625924826,
+  "epochs_ran": 120
+}

@@ -1,0 +1,8 @@
+metric,value
+n_test_sequences,18.0
+n_detected_segments,18.0
+detection_rate,1.0
+mean_abs_start_error_frames,13.777777777777779
+median_abs_start_error_frames,4.0
+mean_abs_stop_error_frames,8.277777777777779
+median_abs_stop_error_frames,7.5

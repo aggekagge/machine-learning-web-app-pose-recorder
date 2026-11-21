@@ -1,0 +1,44 @@
+Initializing models...
+Model registration skipped: Environment variable 'MLFLOW_TRACKING_URI' is not set.
+Deep model registration skipped: Environment variable 'MLFLOW_TRACKING_URI' is not set.
+INFO:     127.0.0.1:55441 - "GET /health/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55441 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55444 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55453 - "POST /datasets/csv/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55453 - "GET /datasets/csv/startup_check_530c14c5467547079eb6c314f8dcdb8f.csv?to_kinect=false&cut_frames=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50683 - "GET /health/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49869 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49869 - "GET /features/weakest_link HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52600 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52600 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59442 - "GET /features/weakest_link HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59442 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59442 - "GET /features/weakest_link HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59442 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59442 - "GET /features/weakest_link HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59442 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59442 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/weakest_link HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /features/weakest_link HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55542 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55542 - "GET /features/score_features HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55790 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60262 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57278 - "GET /datasets/list_csv_files HTTP/1.1" 200 OK

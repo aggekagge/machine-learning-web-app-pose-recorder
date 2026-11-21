@@ -1,0 +1,13 @@
+* Force push to another branch
+	git checkout <BRANCH>
+	git push origin <BRANCH>:<TARGET_BRANCH> --force-with-lease
+
+* Checkout to a remote branch 
+	git fetch
+	git checkout -b origin <BRANCH> origin/<BRANCH>
+
+* Local merge
+    git checkout <TARGET_BRANCH> # Target branch refer to the branch you want to merge something into
+    git merge <SOURCE_BRANCH>
+    # Resolve potential conflicts...
+    git push

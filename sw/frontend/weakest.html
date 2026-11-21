@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weakest Link</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Weakest Link</h1>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="predict.html">Prediction Score</a>
+    <a href="pose_recorder/pose-recorder.html">Pose Recorder</a>
+    <a href="skeleton_viewer/skeleton-3d.html">3D Skeleton Viewer</a>
+  </div>
+
+  <div class="input-row">
+    <label for="userInput">Input (JSON): - enter your data:</label>
+
+    <div class="input-with-upload">
+      <input
+        id="userInput"
+        type="text"
+        placeholder="{'features': v_1, v_2, ..., v_n}  (where 'n' is the number of features)"
+        autocomplete="off"
+      />
+
+      <input id="jsonFile" type="file" accept="application/json,.json" hidden />
+
+      <label for="jsonFile" class="upload-btn" title="Add JSON file">
+        Add JSON file
+      </label>
+    </div>
+  </div>
+
+  <button id="weakBtn">Check Weakest Link</button>
+  <pre id="output"></pre>
+  <section class="features">
+    <h2>Weakest Link Features (Order)</h2>
+    <ul id="weakestFeaturesList"></ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "model_variant": "Dense_best_guess_combo",
+  "hidden_units": [
+    512,
+    256,
+    128
+  ],
+  "dropout_rate": 0.1,
+  "activation": "gelu",
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "loss_name": "huber",
+  "use_scheduler": true,
+  "seq_len": 20,
+  "stride": 1,
+  "use_velocity": true,
+  "clip_targets": false,
+  "scale_targets": true
+}

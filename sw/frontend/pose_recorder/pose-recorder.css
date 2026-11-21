@@ -1,0 +1,182 @@
+.pose-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.pose-panel {
+  border: 1px solid lightgray;
+  background: #fff;
+  padding: 1rem;
+}
+
+.camera-top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.stage {
+  position: relative;
+  width: min(820px, 100%);
+  aspect-ratio: 16 / 9;
+  background: #161616;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.stage video,
+.stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mirrored {
+  transform: scaleX(-1);
+}
+
+.pose-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pose-actions button {
+  margin-left: 0;
+}
+
+#poseStatus {
+  margin-top: 0.75rem;
+  min-height: 100px;
+  white-space: pre-wrap;
+  border: 1px solid lightgray;
+  background: #fafafa;
+  padding: 0.75rem;
+}
+
+.pose-info-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.record-summary {
+  margin: 0;
+}
+
+.recording-info-inline {
+  border: 1px solid lightgray;
+  background: #fafafa;
+  padding: 0.75rem;
+  flex: 0 0 360px;
+  max-width: 100%;
+}
+
+.recording-info-inline h3 {
+  margin: 0 0 0.6rem;
+}
+
+.keypoint-coverage-box {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid lightgray;
+}
+
+.keypoint-coverage-box h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+.keypoint-coverage-status {
+  margin: 0;
+  font-weight: 600;
+}
+
+.camera-quality-box {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid lightgray;
+}
+
+.camera-quality-box h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+.camera-quality-status {
+  margin: 0;
+  font-weight: 600;
+}
+
+.status-good {
+  color: #0c7a27;
+}
+
+.status-bad {
+  color: #b00020;
+}
+
+.status-neutral {
+  color: #4a4a4a;
+}
+
+.video-upload-section {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid lightgray;
+}
+
+.video-upload-section h3 {
+  margin: 0 0 0.5rem;
+}
+
+.video-upload-hint {
+  margin: 0 0 0.5rem;
+}
+
+.video-upload-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.video-upload-actions button {
+  margin-left: 0;
+}
+
+.video-file-name {
+  margin: 0.6rem 0 0.4rem;
+  font-style: italic;
+}
+
+.video-process-status {
+  margin: 0;
+  min-height: 70px;
+  border: 1px solid lightgray;
+  background: #fafafa;
+  padding: 0.6rem;
+  white-space: pre-wrap;
+}
+
+.server-destination-hint {
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid lightgray;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1100px) {
+  .camera-top-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 980px) {
+  .pose-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,30 @@
+Suggestion for how we can organize the training.
+
+src/
+└── models/
+    ├── data/
+    │   ├── raw/               # Original datasets
+    │   ├── processed/         # Cleaned/feature-engineered data
+    │   └── splits.py          # Train/val/test split logic
+    │
+    ├── features/
+    │   ├── build_features.py  # Feature engineering logic
+    │   └── encoders.py        # Label encoders, scalers, etc.
+    │
+    ├── training/
+    │   ├── train.py           # Main training script
+    │   ├── evaluate.py        # Evaluation logic
+    │   ├── hyperparams.py     # Configs or search spaces
+    │   └── experiment.py      # (Optional) experiment runner
+    │
+    ├── models/
+    │   ├── model_definitions.py  # Model architectures / pipelines
+    │   └── save_load.py          # Save/load model helpers
+    │
+    ├── notebooks/
+    │   ├── 01_exploration.ipynb
+    │   ├── 02_feature_engineering.ipynb
+    │   └── 03_model_prototyping.ipynb
+    │
+    ├── config.py               # Paths, seeds, global settings
+    └── __init__.py

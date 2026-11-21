@@ -1,0 +1,24 @@
+
+docker build -t <IMAGE_NAME> <DIRECTORY_OF_DOCKER_FILE>
+docker run <IMAGE_NAME>
+docker run -p 8000:8000 <IMAGE_NAME> - Run  docker file with a port exposed to any environment outside the container.
+
+
+
+For Compose (assumes that compose file is in the root directory):
+docker compose build
+docker compose up -d - Starts applications in compose file
+docker compose down - Stops applications in compose file
+docker compose pull - Pulls images from a container registry specified in docker compose file
+
+
+Docker login to access container registry. 
+docker login gitlab.lnu.se:5050
+Username: <GITLAB_USERNAME>
+Password: <PERSONALIZED_ACCESS_TOKEN> - Needs to be provided by maintainer of the project.
+
+pulling docker images: 
+docker pull gitlab.lnu.se:5050/<username>/<project>:<image_tag>
+
+Running the pulled image:
+docker run gitlab.lnu.se:5050/<username>/<project>:<image_tag>

@@ -1,0 +1,10 @@
+Documentation for nginx installation and usage in Ubuntu.
+
+sudo apt install nginx apache2-utils - installs nginx
+sudo <NAME_OF_PASSWORD> -c /etc/nginx/.htpasswd <USERNAME> - Adds a new user. You will be prompted to insert username and password.
+
+sudo ln -s /etc/nginx/sites-available/mlflow /etc/nginx/sites-enabled/
+sudo nginx -t - Tests if the configuration file is ok
+
+sudo systemctl restart nginx - Restarts the nginx service
+sudo systemctl reload nginx - Reloads the configuration. This can be a good alternative to restarting if you are only interested in reloading the configuration.

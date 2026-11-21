@@ -1,0 +1,10 @@
+
+# jobs:
+#   - model_id: m-3728927031ce43878544f8f5f198b0e4
+#     run_id: f6a917ee57c44533a4ca3729785baa29
+#     model_registry_name: frame_cutter
+#     compare_with_champ: True
+#     include_t_test: False
+#     metric: test_f1_weighted
+#     higher_is_better: True
+  

@@ -1,0 +1,10 @@
+metric,original_kinect,new_corrected_kinect,difference_new_minus_original
+n_sequences,179.0,179.0,0.0
+n_detected_segments,179.0,179.0,0.0
+detection_rate,1.0,1.0,0.0
+mean_abs_start_error_frames,13.022346368715084,11.608938547486034,-1.4134078212290504
+median_abs_start_error_frames,7.0,6.0,-1.0
+mean_abs_stop_error_frames,10.670391061452515,8.614525139664805,-2.05586592178771
+median_abs_stop_error_frames,5.0,4.0,-1.0
+mean_total_abs_error_frames,23.692737430167597,20.223463687150836,-3.4692737430167604
+median_total_abs_error_frames,18.0,17.0,-1.0
