@@ -164,13 +164,13 @@ This was a collaborative group project. My work included:
 
 Developed for the **4DT907 "Project in data intensive systems"** Master's level course at Linnaeus University, spring 2026.
 
-
+<table>
   <tr>
     <td width="40%">
-      <img src="assets/1squat.png" alt="Pose Recorder" width="36%">
+      <img src="assets/1squat.png" alt="Pose Recorder" width="100%">
     </td>
     <td width="50%">
-      <img src="assets/2squat.png" alt="3D Skeleton Viewer" width="45%">
+      <img src="assets/2squat.png" alt="3D Skeleton Viewer" width="100%">
     </td>
   </tr>
 </table>
