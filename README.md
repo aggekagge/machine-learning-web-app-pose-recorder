@@ -146,7 +146,7 @@ docker compose down
 
 **Availability note:** The original MLflow deployment requires access to the Linnaeus University network or VPN. A public clone may therefore need updated model paths, credentials, or local model artifacts before every feature can run. The original university-hosted demo may no longer be available.
 
-## My contributions — Agust Eliasson
+## My contributions - Agust Eliasson
 
 This was a collaborative group project. My work included:
 
