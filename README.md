@@ -163,3 +163,14 @@ This was a collaborative group project. My work included:
 - Elliot Ehn
 
 Developed for the **4DT907 "Project in data intensive systems"** Master's level course at Linnaeus University, spring 2026.
+
+
+  <tr>
+    <td width="50%">
+      <img src="assets/1squat.png" alt="Pose Recorder" width="40%">
+    </td>
+    <td width="50%">
+      <img src="assets/2squat.png" alt="3D Skeleton Viewer" width="50%">
+    </td>
+  </tr>
+</table>
