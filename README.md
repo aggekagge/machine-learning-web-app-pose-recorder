@@ -1,89 +1,67 @@
-# ML Project – 4DT907
+# Machine Learning Web App & Pose Recorder
 
-This repository contains our machine learning system developed in the course **4DT907**. The system provides predictions through a web interface backed by ML infrastructure using Docker, FastAPI, and MLflow.
+A full-stack university project for **movement analysis, machine-learning predictions, and 3D skeleton visualization**. The application combines a browser interface, a Node.js web server, a FastAPI inference service, and MLflow-managed models.
 
-**Maintained by:**
+Developed as a group project in **4DT907** at **Linnaeus University, Sweden**.
 
-- Agust Eliasson (ae224pp)  
-- Petter Gustafsson (pg222jw)  
-- Kim Wong (kw222qs)  
-- Elliot Ehn (ee223zs)  
+## Overview
 
-Our web application is available at:   
-https://cu2170.camp.lnu.se
+The system lets users explore movement-related predictions and record or upload movement data. Its main functions include:
 
----
+- **Score prediction:** Predict an AIMO movement score from angle and timing deviations.
+- **Weakest-link classification:** Identify the movement component most likely to need attention from movement-derived features.
+- **Pose Recorder:** Capture a movement with a camera, or process a video, and export **MoveNet 2D keypoints** as CSV.
+- **Pose processing:** Upload MoveNet CSV data, remove non-exercise frames, and transform 2D MoveNet coordinates into **3D Kinect-style skeleton coordinates** using trained models.
+- **3D Skeleton Viewer:** Load a processed CSV and inspect the reconstructed movement frame by frame or as an animation.
 
-# System Overview
+The prediction and recording workflows were developed by the team over multiple course assignments.
 
-Our ML system consists of three main components that work together to deliver predictions:
+## Screenshots
 
-```bash
-+-------------------+
-|                   |
-|   Web Application |
-|  (Frontend +      |
-|   Backend)        |
-|                   |
-+---------+---------+
-          |
-          | HTTP Request (features)
-          | POST /predict
-          v
-+---------+---------+
-|                   |
-|   FastAPI Server  |
-|   (ML Inference   |
-|    Service)       |
-|                   |
-+---------+---------+
-          |
-          | Load model from registry
-          | (MLflow Python API)
-          v
-+---------+---------+
-|                   |
-|   MLflow Server   |
-|   Model Registry  |
-|                   |
-+---------+---------+
+### Pose Recorder
+
+![Pose Recorder interface](assets/pose-recorder.png)
+
+The recording page includes camera controls, video-to-keypoint processing, CSV upload, and downloads for processed movement data.
+
+### 3D Skeleton Viewer
+
+![3D Skeleton Viewer interface](assets/skeleton-viewer.png)
+
+The viewer can load a 3D skeleton CSV and visualize the movement using frame and playback controls.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    UI[Browser UI<br/>HTML / CSS / JavaScript] --> WEB[Node.js web server]
+    WEB --> API[FastAPI inference and data-processing service]
+    API <--> REG[MLflow model registry]
+    UI --> MOV[MoveNet keypoint extraction]
+    MOV --> CSV[MoveNet CSV data]
+    CSV --> API
+    API --> VIEW[Processed Kinect 3D CSV]
+    VIEW --> UI
 ```
 
----
+**Main technologies:** Python, FastAPI, Uvicorn, MLflow, scikit-learn, XGBoost, Node.js, JavaScript, HTML, CSS, Docker, and Docker Compose. The pose workflow also uses **MoveNet** and **Kinect-style joint representations**.
 
-# Components
+## Components
 
-## 1. Web Application (`sw/`)
+### 1. Web Application (`sw/`)
 
-Provides the user interface and handles communication with the ML inference service.
+**Frontend:** Built with HTML, CSS, and JavaScript to handle user interaction, movement recording, 3D skeleton visualization, and displaying ML predictions.
 
-**Responsibilities:**
-
-- Accept user input through a web interface  
-- Send prediction requests to the FastAPI server  
-- Display prediction results  
-
-**Structure:**
-
-- `sw/frontend/` – HTML, CSS, JavaScript frontend  
-- `sw/backend/` – Node.js backend server  
+**Backend:** Node.js server that handles communication between the frontend and ML inference service.
 
 ---
+### 2. FastAPI Server (`ml/api/`)
 
-## 2. FastAPI Server (`ml/api/`)
+- Built using **FastAPI** to expose trained machine learning models through REST endpoints.
 
-Acts as the ML inference service and connects the web application to the machine learning models.
+- Handles input validation, model loading, inference, and prediction responses.
 
-**Responsibilities:**
-
-- Provide REST API endpoints such as:
-  - `/predict`
-  - `/health`
-  - `/features`
-- Validate incoming requests
-- Load models from MLflow or local storage to memory
-- Perform inference
-- Return prediction results
+- Supports endpoints such as /predict, /health, and /features.
 
 **Key modules:**
 
@@ -92,133 +70,96 @@ Acts as the ML inference service and connects the web application to the machine
 - `services/inference.py` – Inference logic  
 - `core/model_loader.py` – Loads models
 - `core/model_registry.py` – Handles model registry logic
-
 ---
-
-## 3. MLflow Service
+### 3. MLflow Service
 
 MLflow is used as the central system for managing, storing, and serving machine learning models in this project. It ensures that models can be versioned, tracked, and reliably accessed by the FastAPI inference server.
 
-**Responsibilities**:
+- Manages machine learning experiments, model versions, and registered models.
 
-- Version control of models
-- Centralized storage
-- Enable easier deployment of production models
-- Reproducibility of experiments
-- Separation between model training and model serving
+- Provides centralized access to trained models for the inference service.
 
-
+- Supports reproducibility and separation of model training from deployment.
 
 ---
+The components are containerized using **Docker and Docker Compose.**
 
-**Note:** Access to the MLflow server requires connection to the university network or VPN.
+## Machine-learning work
 
-## Training and registering models
+The project explored several machine learning techniques, including:
 
-In this project, we use the MLflow Python API to log, register, and manage trained models directly from our training notebooks in the `ml/models/research/` folder. This allows models to be stored on the remote MLflow server and made available for inference by the FastAPI service.
+- **Classification:** Predicting the weakest link in movement assessments using XGBoost.
 
-The MLflow API enables programmatic interaction with the MLflow tracking server and model registry.
+- **Regression:** Predicting AIMO movement scores.
 
----
+- **Ensemble learning:** Random Forest, XGBoost, CatBoost, and stacking ensembles.
 
-## Logging Models
+- **Clustering:** Exploring patterns and similarities in movement data.
 
-After training a model in a notebook, we log it to MLflow using the MLflow Python library. This typically includes:
+- **Dimensionality reduction:** Principal Component Analysis (PCA).
 
-- The trained model artifact
-- Model parameters
-- Performance metrics
-- Additional metadata
+- **Pose estimation:** Using MoveNet to extract body keypoints from video.
 
-Example workflow:
+- **3D pose reconstruction:** Converting 2D movement data into 3D Kinect-style skeleton representations.
 
-```python
-import mlflow
-import mlflow.sklearn
+- **Model evaluation:** Cross-validation, hyperparameter tuning, and performance comparison.
 
-mlflow.set_tracking_uri("http://<mlflow-server>:5000")
-mlflow.set_experiment("weakest_link_classification")
+- **MLOps:** Experiment tracking, model versioning, and registration using MLflow.
 
-with mlflow.start_run():
+Some methods were explored during research and experimentation and were not necessarily integrated into the final version of the application.
 
-    # Train model
-    model.fit(X_train, y_train)
+## Repository structure
 
-    # Log parameters
-    mlflow.log_param("model_type", "RandomForest")
-    mlflow.log_param("n_estimators", 100)
-
-    # Log metrics
-    mlflow.log_metric("accuracy", accuracy)
-
-    # Log the model artifact
-    mlflow.sklearn.log_model(
-        model,
-        artifact_path="model"
-    )
+```text
+sw/
+  frontend/             # Browser interface
+  backend/              # Node.js web server
+ml/
+  api/                  # FastAPI endpoints and inference services
+  models/
+    research/            # Model experiments and training notebooks
 ```
 
-# Running the Project with Docker
+The application communicates with the FastAPI service over HTTP. The inference service retrieves models from MLflow or configured local storage.
 
-The entire system is containerized using Docker and orchestrated with Docker Compose.  
-This allows you to start all services (web application and FastAPI server) with a few simple commands.
+## Running locally
 
----
+### Prerequisites
 
-## Prerequisites
+- Docker and Docker Compose
+- Access to any required models, data, and MLflow services
 
-Make sure you have the following installed:
-
-- Docker
-- Docker Compose (included in modern Docker installations)
-
-You can verify your installation with:
-```bash
-docker --version
-docker compose version
-```
-
-
----
-
-## Build the Containers
-
-Before starting the system for the first time (or after making changes to Dockerfiles), build the images from project root:
+From the repository root:
 
 ```bash
 docker compose build
-```
-
-
-This command:
-
-- Builds the web application
-- Builds the FastAPI ML service container
-
----
-
-## Starting and stopping the Application
-
-To start all services in detached moderun:
-```bash
 docker compose up -d
 ```
 
-To check that all services are running:
-```bash
-docker ps
-```
+The original project documentation shows the web service on **http://localhost:3000** and the FastAPI service on **http://localhost:8000**.
 
-You should see multiple containers listed similarly as below: 
-```bash
-CONTAINER ID   IMAGE                                        COMMAND                  CREATED          STATUS          PORTS                                         NAMES
-e0b98ca093e5   machine_learning_project_4dt907-sw-backend   "docker-entrypoint.s…"   13 seconds ago   Up 13 seconds   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   sw-backend
-1b81ed350142   machine_learning_project_4dt907-ml-api       "uvicorn main:app --…"   13 seconds ago   Up 13 seconds   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   ml-api
-```
-To stop the application, run:
+Stop the services with:
+
 ```bash
 docker compose down
 ```
----
 
+**Availability note:** The original MLflow deployment requires access to the Linnaeus University network or VPN. A public clone may therefore need updated model paths, credentials, or local model artifacts before every feature can run. The original university-hosted demo may no longer be available.
 
+## My contributions — Agust Eliasson
+
+This was a collaborative group project. My work included:
+
+- **Software development:** Worked on the software-development side of the project as part of the web application and API team.
+- **Pose estimation and 3D visualization:** Worked with MoveNet and Kinect models, integrating them into the application to process movement data and generate 3D skeleton representations. Developed and connected the 3D Skeleton Viewer to display and animate the resulting movement data.
+- **Ensemble-learning experiment:** Implemented training and prediction scripts for **stacking ensembles** in both regression and classification, including base-model predictions and a meta-model that learns to combine them.
+- **Team workflow:** Participated in a project organized with GitLab issues, milestones/sprints, branches, merge requests, and code reviews.
+
+## Team
+
+- Agust Eliasson
+- Petter Gustafsson
+- Kim Wong
+- Elliot Ehn
+
+Developed for the **4DT907 "Project in data intensive systems"** Master's level course at Linnaeus University, spring 2026.
